@@ -1,29 +1,37 @@
-"use client"
-
 import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
+import { Slot } from "radix-ui"
+
 import { cn } from "@/lib/utils"
 
-const premiumButtonVariants = cva(
-  "group relative inline-flex items-center justify-center gap-2.5 overflow-hidden whitespace-nowrap font-medium tracking-tight transition-all duration-300 ease-out disabled:pointer-events-none disabled:opacity-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+const buttonVariants = cva(
+  "group/button inline-flex shrink-0 items-center justify-center rounded-lg border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
   {
     variants: {
       variant: {
-        default:
-          "bg-primary text-primary-foreground hover:shadow-lg hover:shadow-primary/20 active:scale-[0.98]",
+        default: "bg-primary text-primary-foreground [a]:hover:bg-primary/80",
         outline:
-          "border-2 border-primary bg-transparent text-primary hover:bg-primary hover:text-primary-foreground active:scale-[0.98]",
+          "border-border bg-background hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50",
+        secondary:
+          "bg-secondary text-secondary-foreground hover:bg-secondary/80 aria-expanded:bg-secondary aria-expanded:text-secondary-foreground",
         ghost:
-          "bg-transparent text-foreground hover:bg-muted active:scale-[0.98]",
-        glow: "bg-primary text-primary-foreground shadow-[0_0_0_0_var(--primary)] hover:shadow-[0_0_30px_4px_var(--primary)] hover:shadow-primary/40 active:scale-[0.98]",
-        glass:
-          "bg-foreground/5 text-foreground backdrop-blur-md border border-foreground/10 hover:bg-foreground/10 hover:border-foreground/20 active:scale-[0.98]",
+          "hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:hover:bg-muted/50",
+        destructive:
+          "bg-destructive/10 text-destructive hover:bg-destructive/20 focus-visible:border-destructive/40 focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:hover:bg-destructive/30 dark:focus-visible:ring-destructive/40",
+        link: "text-primary underline-offset-4 hover:underline",
       },
       size: {
-        sm: "h-9 px-4 text-sm rounded-lg",
-        default: "h-11 px-6 text-sm rounded-xl",
-        lg: "h-14 px-8 text-base rounded-xl",
-        xl: "h-16 px-10 text-lg rounded-2xl",
+        default:
+          "h-8 gap-1.5 px-2.5 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2",
+        xs: "h-6 gap-1 rounded-[min(var(--radius-md),10px)] px-2 text-xs in-data-[slot=button-group]:rounded-lg has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3",
+        sm: "h-7 gap-1 rounded-[min(var(--radius-md),12px)] px-2.5 text-[0.8rem] in-data-[slot=button-group]:rounded-lg has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3.5",
+        lg: "h-9 gap-1.5 px-2.5 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2",
+        icon: "size-8",
+        "icon-xs":
+          "size-6 rounded-[min(var(--radius-md),10px)] in-data-[slot=button-group]:rounded-lg [&_svg:not([class*='size-'])]:size-3",
+        "icon-sm":
+          "size-7 rounded-[min(var(--radius-md),12px)] in-data-[slot=button-group]:rounded-lg",
+        "icon-lg": "size-9",
       },
     },
     defaultVariants: {
@@ -33,78 +41,27 @@ const premiumButtonVariants = cva(
   }
 )
 
-interface PremiumButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof premiumButtonVariants> {
-  children: React.ReactNode
-  shimmer?: boolean
-  magnetic?: boolean
-}
-
-function PremiumButton({
+function Button({
   className,
-  variant,
-  size,
-  children,
-  shimmer = false,
-  magnetic = false,
+  variant = "default",
+  size = "default",
+  asChild = false,
   ...props
-}: PremiumButtonProps) {
-  const buttonRef = React.useRef<HTMLButtonElement>(null)
-  const [position, setPosition] = React.useState({ x: 0, y: 0 })
-
-  const handleMouseMove = React.useCallback(
-    (e: React.MouseEvent<HTMLButtonElement>) => {
-      if (!magnetic || !buttonRef.current) return
-      const rect = buttonRef.current.getBoundingClientRect()
-      const x = e.clientX - rect.left - rect.width / 2
-      const y = e.clientY - rect.top - rect.height / 2
-      setPosition({ x: x * 0.15, y: y * 0.15 })
-    },
-    [magnetic]
-  )
-
-  const handleMouseLeave = React.useCallback(() => {
-    if (!magnetic) return
-    setPosition({ x: 0, y: 0 })
-  }, [magnetic])
+}: React.ComponentProps<"button"> &
+  VariantProps<typeof buttonVariants> & {
+    asChild?: boolean
+  }) {
+  const Comp = asChild ? Slot.Root : "button"
 
   return (
-    <button
-      ref={buttonRef}
-      className={cn(premiumButtonVariants({ variant, size, className }))}
-      style={
-        magnetic
-          ? {
-              transform: `translate(${position.x}px, ${position.y}px)`,
-            }
-          : undefined
-      }
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
+    <Comp
+      data-slot="button"
+      data-variant={variant}
+      data-size={size}
+      className={cn(buttonVariants({ variant, size, className }))}
       {...props}
-    >
-      {/* Shimmer effect overlay */}
-      {shimmer && (
-        <span className="absolute inset-0 overflow-hidden rounded-[inherit]">
-          <span className="absolute inset-0 -translate-x-full animate-[shimmer_2s_infinite] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-        </span>
-      )}
-
-      {/* Hover fill effect for outline variant */}
-      {variant === "outline" && (
-        <span className="absolute inset-0 -z-10 scale-x-0 bg-primary transition-transform duration-300 ease-out origin-left group-hover:scale-x-100" />
-      )}
-
-      {/* Content with subtle lift on hover */}
-      <span className="relative z-10 flex items-center gap-2.5 transition-transform duration-300 group-hover:-translate-y-px">
-        {children}
-      </span>
-
-      {/* Subtle inner glow */}
-      <span className="pointer-events-none absolute inset-0 rounded-[inherit] opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-gradient-to-t from-transparent to-white/5" />
-    </button>
+    />
   )
 }
 
-export { PremiumButton, premiumButtonVariants }
+export { Button, buttonVariants }

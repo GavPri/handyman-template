@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Lora, Actor, Roboto_Mono } from "next/font/google";
 import "./globals.css";
+import { Navbar21 } from "@/components/navbar21";
 
 const fontSans = Lora({
   subsets: ["latin"],
@@ -34,6 +35,7 @@ export default function RootLayout({
       className={`${fontMono.variable} ${fontSerif.variable} ${fontSans.variable} h-full antialiased`}
     >
       <body className={`${fontSans.variable} ${fontSerif.variable} ${fontMono.variable} antialiased`}>
+        <Navbar21/>
         {children}
       </body>
     </html>

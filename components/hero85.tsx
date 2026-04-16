@@ -3,7 +3,7 @@
 import AutoScroll from "embla-carousel-auto-scroll";
 
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { PremiumButton } from "@/components/ui/premium-button";
 import {
   Carousel,
   CarouselContent,
@@ -17,8 +17,8 @@ interface Hero85Props {
 
 const Hero85 = ({ className }: Hero85Props) => {
   return (
-    <section className={cn("py-32", className)}>
-      <div className="container">
+    <section className={cn("py-8 px-4 lg:px-0", className)}>
+      <div className="container mx-auto">
         <div className="grid items-center gap-16 lg:grid-cols-2">
           <div className="mx-auto">
             <div className="flex w-fit items-center gap-2 rounded-full border px-2.5 py-1.5 text-xs font-medium">
@@ -28,21 +28,21 @@ const Hero85 = ({ className }: Hero85Props) => {
             <h1 className="mt-10 mb-4 text-3xl font-semibold lg:text-5xl">
               Revolutionizing Client Collaboration for Modern Services
             </h1>
-            <p className="mx-auto text-muted-foreground lg:text-lg">
+            <p className="mx-auto text-muted-foreground lg:text-lg font-serif">
               Elevate your service-based business with customizable client
               portals and advanced back-office management
             </p>
             <div className="mt-10 flex flex-col gap-2 sm:flex-row">
-              <Button size="lg" className="w-full gap-2 sm:w-auto">
+              <PremiumButton size="lg" className="w-full gap-2 sm:w-auto">
                 Start for Free
-              </Button>
-              <Button
+              </PremiumButton>
+              <PremiumButton
                 variant="outline"
                 size="lg"
                 className="w-full gap-2 sm:w-auto"
               >
                 Schedule a Demo
-              </Button>
+              </PremiumButton>
             </div>
           </div>
           <div className="flex flex-col gap-8 lg:hidden">
