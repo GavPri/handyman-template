@@ -13,46 +13,46 @@ import { cn } from "@/lib/utils";
 
 const testimonials = [
   {
-    name: "John Doe",
-    role: "CEO & Founder",
+    name: "Aoife Brennan",
+    role: "Dublin 14",
     avatar: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-1.webp",
     content:
-      "Lorem ipsum dolor sit, amet Odio, incidunt.  id ut omnis repellat. Lorem ipsum dolor sit, amet Odio, incidunt. Ratione, ullam? Iusto id ut omnis.",
+      "Sean did a brilliant job tiling our bathroom. Neat, tidy, and finished ahead of schedule. Would highly recommend to anyone in Dublin!",
   },
   {
-    name: "Jane Doe",
-    role: "CTO",
+    name: "Paul Kavanagh",
+    role: "Dublin 6W",
     avatar: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-2.webp",
     content:
-      "Lorem ipsum dolor sit, amet Odio, incidunt. Ratione, ullam? Iusto id ut omnis repellat. Lorem ipsum dolor sit, amet Odio, incidunt. Ratione, ullam? Iusto id ut omnis repellat.",
+      "Called FixRight for a few small repairs around the house — a leaky tap, a sticking door, and some painting. All sorted in one visit. Great value and very professional.",
   },
   {
-    name: "John Smith",
-    role: "COO",
+    name: "Margaret & Tom Reilly",
+    role: "Dublin 12",
     avatar: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-3.webp",
     content:
-      "Lorem ipsum dolor sit, amet Odio, incidunt. Ratione, ullam? Iusto id ut omnis repellat. Lorem ipsum dolor sit.",
+      "Honest pricing and excellent workmanship. Sean replaced our guttering and fascia boards and the finish is perfect. Will definitely be using FixRight again.",
   },
   {
-    name: "Jane Smith",
-    role: "Tech Lead",
+    name: "Ciara Dunne",
+    role: "Dublin 8",
     avatar: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-4.webp",
     content:
-      "Lorem ipsum dolor sit, amet Odio, incidunt. Ratione, ullam? Iusto id ut omnis repellat. incidunt. Ratione, ullam? Iusto id ut omnis repellat ratione.",
+      "Very responsive and easy to deal with. Assembled a load of IKEA furniture for us and had it all done in a few hours. Saved us a weekend of stress!",
   },
   {
-    name: "Richard Doe",
-    role: "Designer",
+    name: "Declan O'Brien",
+    role: "Dublin 6",
     avatar: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-5.webp",
     content:
-      "Lorem ipsum dolor sit, amet Odio, incidunt. Ratione, ullam? Iusto id ut omnis repellat.",
+      "Had Sean fit new shelving and skirting boards throughout the hallway. Immaculate finish, fair price, and he left the place spotless. Couldn't ask for more.",
   },
   {
-    name: "Gordon Doe",
-    role: "Developer",
+    name: "Sinéad Walsh",
+    role: "Dublin 16",
     avatar: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/avatar-6.webp",
     content:
-      "Lorem ipsum dolor sit, amet Odio, incidunt. Ratione, ullam? Iusto id ut omnis repellat. Lorem ipsum dolor sit, amet Odio, incidunt. Ratione, ullam? Iusto id ut omnis repellat.",
+      "Sean painted our entire ground floor and the results are stunning. Punctual every day, tidied up after himself, and the attention to detail was second to none.",
   },
 ];
 

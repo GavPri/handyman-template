@@ -43,7 +43,7 @@ interface Footer30Props {
 
 const Footer30 = ({ className }: Footer30Props) => {
   return (
-    <section className={cn("relative overflow-hidden pt-16 px-4 lg:px-0", className)}>
+    <footer className={cn("relative overflow-hidden pt-16 px-4 lg:px-0", className)}>
 
       {/* ── Top separator ────────────────────────────────────── */}
       <div className="container mx-auto mb-16">
@@ -165,7 +165,7 @@ const Footer30 = ({ className }: Footer30Props) => {
         </div>
 
       </div>
-    </section>
+    </footer>
   );
 };
 

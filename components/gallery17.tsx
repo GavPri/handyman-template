@@ -106,6 +106,7 @@ const Gallery17 = ({ className }: Gallery17Props) => {
                       className="block size-full object-cover object-center"
                       src={img.src}
                       alt={img.alt}
+                      loading="lazy"
                     />
                   </div>
                 </CarouselItem>

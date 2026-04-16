@@ -11,7 +11,7 @@ import { Testimonial6 } from "@/components/testimonial6";
 
 export default function Home() {
   return (
-      <main className="w-screen flex-col items-center justify-center">
+      <main id="main-content" className="w-screen flex-col items-center justify-center">
         <section id="home"><Hero85/></section>
         <section id="services"><Services1/></section>
         <section id="testimonials"><Testimonial6/></section>
@@ -19,7 +19,7 @@ export default function Home() {
         <section id="faq"><Faq9/></section>
         <section id="contact"><Contact/></section>
         <Footer30/>
-        <CallNowButton phoneNumber="tel:+1234567890" />
+        <CallNowButton phoneNumber="tel:+353872345678" />
       </main>
     
   );

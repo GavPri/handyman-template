@@ -40,7 +40,7 @@ const Navbar21 = ({ className }: Navbar21Props) => {
   const toggleTheme = () => setTheme(resolvedTheme === "dark" ? "light" : "dark");
 
   return (
-    <section className={cn("sticky top-0 z-50 md:px-16 bg-background", className)}>
+    <header className={cn("sticky top-0 z-50 md:px-16 bg-background", className)}>
       <div className="flex items-center justify-between px-6 pt-10 pb-6 border-b-2 border-border">
         <a href="#home" className="z-50 flex items-center gap-2.5 group">
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary transition-transform duration-200 group-hover:scale-105">
@@ -162,7 +162,7 @@ const Navbar21 = ({ className }: Navbar21Props) => {
           </motion.div>
         )}
       </AnimatePresence>
-    </section>
+    </header>
   );
 };
 

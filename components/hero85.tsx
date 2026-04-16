@@ -184,18 +184,18 @@ const Hero85 = ({ className }: Hero85Props) => {
           >
             <Carousel opts={{ loop: true }} plugins={[AutoScroll({ speed: 0.8 })]} className="-mx-7">
               <CarouselContent className="max-h-[350px]">
-                {IMAGES_A.map((img) => (
+                {IMAGES_A.map((img, i) => (
                   <CarouselItem key={img.src} className="max-w-96">
-                    <img src={img.src} alt={img.alt} className="h-full w-full object-cover" />
+                    <img src={img.src} alt={img.alt} className="h-full w-full object-cover" fetchPriority={i === 0 ? "high" : "low"} loading={i === 0 ? "eager" : "lazy"} />
                   </CarouselItem>
                 ))}
               </CarouselContent>
             </Carousel>
             <Carousel opts={{ loop: true }} plugins={[AutoScroll({ speed: 0.8, direction: "backward" })]} className="-mx-7">
               <CarouselContent className="max-h-[350px]">
-                {IMAGES_B.map((img) => (
+                {IMAGES_B.map((img, i) => (
                   <CarouselItem key={img.src} className="max-w-96">
-                    <img src={img.src} alt={img.alt} className="h-full w-full object-cover" />
+                    <img src={img.src} alt={img.alt} className="h-full w-full object-cover" fetchPriority={i === 0 ? "high" : "low"} loading={i === 0 ? "eager" : "lazy"} />
                   </CarouselItem>
                 ))}
               </CarouselContent>
@@ -211,18 +211,18 @@ const Hero85 = ({ className }: Hero85Props) => {
           >
             <Carousel opts={{ loop: true }} plugins={[AutoScroll({ speed: 0.8 })]} orientation="vertical">
               <CarouselContent className="max-h-[600px]">
-                {IMAGES_A.map((img) => (
+                {IMAGES_A.map((img, i) => (
                   <CarouselItem key={img.src}>
-                    <img src={img.src} alt={img.alt} className="h-full w-full rounded-xl object-cover" />
+                    <img src={img.src} alt={img.alt} className="h-full w-full rounded-xl object-cover" fetchPriority={i === 0 ? "high" : "low"} loading={i === 0 ? "eager" : "lazy"} />
                   </CarouselItem>
                 ))}
               </CarouselContent>
             </Carousel>
             <Carousel opts={{ loop: true }} plugins={[AutoScroll({ speed: 0.8, direction: "backward" })]} orientation="vertical">
               <CarouselContent className="max-h-[600px]">
-                {IMAGES_B.map((img) => (
+                {IMAGES_B.map((img, i) => (
                   <CarouselItem key={img.src}>
-                    <img src={img.src} alt={img.alt} className="h-full w-full rounded-xl object-cover" />
+                    <img src={img.src} alt={img.alt} className="h-full w-full rounded-xl object-cover" fetchPriority={i === 0 ? "high" : "low"} loading={i === 0 ? "eager" : "lazy"} />
                   </CarouselItem>
                 ))}
               </CarouselContent>
