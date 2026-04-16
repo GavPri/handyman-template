@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
-import { Lora, Actor, Roboto_Mono } from "next/font/google";
+import { Poppins, Lora, Roboto_Mono } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "next-themes";
 import { Navbar21 } from "@/components/navbar21";
 
-const fontSans = Lora({
+const fontSans = Poppins({
+  weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
   variable: "--font-sans",
 });
 
-const fontSerif = Actor({
+const fontSerif = Lora({
   weight: "400",
   subsets: ["latin"],
   variable: "--font-serif",
@@ -32,11 +34,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${fontMono.variable} ${fontSerif.variable} ${fontSans.variable} h-full antialiased`}
+      className={`${fontMono.variable} ${fontSerif.variable} ${fontSans.variable} h-full antialiased scroll-smooth`}
     >
       <body className={`${fontSans.variable} ${fontSerif.variable} ${fontMono.variable} antialiased`}>
-        <Navbar21/>
-        {children}
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <Navbar21/>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -36,7 +36,7 @@ const premiumButtonVariants = cva(
 interface PremiumButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof premiumButtonVariants> {
-  children: React.ReactNode
+  children?: React.ReactNode
   shimmer?: boolean
   magnetic?: boolean
 }
